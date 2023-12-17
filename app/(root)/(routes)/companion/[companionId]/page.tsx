@@ -5,6 +5,7 @@ import prismadb from "@/lib/prismadb";
 // import { checkSubscription } from "@/lib/subscription";
 
 import { CompanionForm } from "./components/companion-form";
+import { checkSubscription } from "@/lib/subscription";
 
 interface CompanionIdPageProps {
   params: {
@@ -21,11 +22,11 @@ const CompanionIdPage = async ({
     return redirectToSignIn();
   }
 
-  // const validSubscription = await checkSubscription();
+  const validSubscription = await checkSubscription();
 
-  // if (!validSubscription) {
-  //   return redirect("/");
-  // }
+  if (!validSubscription) {
+    return redirect("/");
+  }
 
   const companion = await prismadb.companion.findUnique({
     where: {

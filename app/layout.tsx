@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
+import { ProModal } from '@/components/pro-modal';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +25,7 @@ export default function RootLayout({
     
         <body className={cn("", inter.className)}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            {/* <ProModal /> */}
+            <ProModal />
             {children}
             <Toaster />
           </ThemeProvider>
